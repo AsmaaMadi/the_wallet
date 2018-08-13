@@ -9,9 +9,9 @@ class Wallet extends Model
     protected $fillable = [
         'name'
     ];
-    public function userData()
+    public function userdata()
     {
-        $this->belongsToMany(UserData::class,userData_wallet,wallet_id,userData_id);
+        $this->belongsToMany(Userdata::class);
     }
     public function transaction()
     {

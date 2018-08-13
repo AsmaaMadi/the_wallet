@@ -19,6 +19,6 @@ class Transaction extends Model
     }
     public function userData()
     {
-        $this->belongsTo(UserData::class);
+        $this->belongsTo(Userdata::class);
     }
 }

@@ -36,7 +36,7 @@ class Userdata extends Model
 
     public function wallet()
     {
-        $this->belongsToMany(Wallet::class,userData_wallet,userData_id,wallet_id);
+        $this->belongsToMany(Wallet::class,userdata_wallet,userdata_id,wallet_id);
     }
     public function transaction()
     {
