@@ -16,6 +16,12 @@ class CreateWalletsTable extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+
+            $table->timestamps();
+        });
+        Schema::create('userdata_wallet', function (Blueprint $table) {
+            $table->integer('userData_id');
+            $table->integer('wallet_id');
             $table->timestamps();
         });
     }
@@ -27,6 +33,7 @@ class CreateWalletsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('userdata_wallet');
         Schema::dropIfExists('wallets');
     }
 }

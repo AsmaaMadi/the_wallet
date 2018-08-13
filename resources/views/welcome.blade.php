@@ -1,95 +1,41 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <main id="main">
+        <!-- Main body /////////////////////////////////////////////////////--><!--Breadcrumb--><!--Breadcrumb Ends -->
+        <section  aria-label="Small Changes Mean Big Things">
+            <div class="marquee marquee--banner" style="background-image: url({{ asset('/image/hellowallet.jpg') }});">
+                <div class="marquee__content">
+                    <h1 class="marquee__heading">Small Changes Mean Big Things</h1>				<div class="marquee__subheading">
+                        <p>We've updated this page, now that Wallet is part of KeyBank, but our commitment to your financial wellness journey continues same as always. Come on in.</p>
+                    </div>
+                    <a href="{{route('login')}}" class="btn">Sign In</a>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div>
-    </body>
-</html>
+        </section>
+        <section  aria-label="New to HelloWallet?">
+            <div class="block ">
+                <div class="block__content">
+                    <!-- Block Heading -->
+                    <h2 class="block__heading">New to HelloWallet?</h2>
+                    <!-- Block Subheading -->
+                    <p class="block__subheading">Take the first step towards reaching your financial goals.</p>
+                    <!-- Block Content/Rich Text -->
+                    <div class="block__wysiwyg">
+                        <ul>
+                            <li>Get a full picture of your Financial Wellness and track improvements over time</li>
+                            <li>Say goodbye to complicated budgeting and build a simple spending plan that works for you</li>
+                            <li>Prepare for a bright future with forecasting tools and savings recommendations</li>
+                            <li>Securely connect to your banks and see your balances and transactions, updated in real-time</li>
+                        </ul>
+                        <p>Take the first step to financial wellness.</p>			</div>
+                </div>
+                <a href="{!! url('/wallet') !!}" class="btn">Sign Up Today</a>
+            </div>
+        </section>
+
+
+    </main>
+@endsection

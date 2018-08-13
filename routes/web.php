@@ -21,11 +21,13 @@ Route::get('/', function () {
     'transaction','TransactionController',
     'category','CategoryController'
 ]);*/
+
 Route::resource('/wallet','WalletController');
 Route::resource('/userdata','UserDataController');
 Route::resource('/transaction','TransactionController');
 Route::resource('/category','CategoryController');
 Route::get('/userdata/login','UserDataController@login');
+//Route::get('/userdata','UserDataController');
 
 Auth::routes();
 

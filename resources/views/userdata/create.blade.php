@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('userdata.create') }}" aria-label="{{ __('Register') }}">
+                        <form method="POST" action="{{ route('userdata.store') }}" aria-label="{{ __('Register') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -39,17 +39,21 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                                <fieldset class="col-md-4 col-form-label text-md-right">
+                                    Gender
 
-                                <div class="col-md-6">
-                                    <input id="gender" type="number" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required autofocus>
+                                    <div>
+                                        <input type="radio" id="huey" name="gender"  value="male"  />
+                                        <label for="male">Male</label>
+                                    </div>
 
-                                    @if ($errors->has('gender'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('gender') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
+                                    <div>
+                                        <label for="female">Female</label>
+                                        <input type="radio" id="dewey" name="gender"  value="female"/>
+
+                                    </div>
+                                </fieldset>
+
                             </div>
 
                             <div class="form-group row">

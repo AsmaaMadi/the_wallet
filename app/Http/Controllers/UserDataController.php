@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\UserData;
+use App\Http\Requests\UserStoreRequest;
+use App\Userdata;
+use App\User;
 use Illuminate\Http\Request;
 
-class UserDataController extends Controller
+class UserdataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class UserDataController extends Controller
      */
     public function index()
     {
-        //
+        $users=Userdata::all();
+        return view('userdata.index',compact('users'));
     }
     public function login()
     {
@@ -27,7 +30,7 @@ class UserDataController extends Controller
      */
     public function create()
     {
-        //
+        return view('userdata.create');
     }
 
     /**
@@ -36,9 +39,16 @@ class UserDataController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
-        //
+        //dd($request);
+        $request->validated();
+      //  dd($request);
+        $userData = new Userdata();
+        $userData->saveUser($request);
+
+        return redirect()->route('userdata.index')->with('success','the wallet is created successfully');
+
     }
 
     /**
@@ -47,7 +57,7 @@ class UserDataController extends Controller
      * @param  \App\UserData  $userData
      * @return \Illuminate\Http\Response
      */
-    public function show(UserData $userData)
+    public function show(Userdata $userData)
     {
         //
     }
@@ -58,7 +68,7 @@ class UserDataController extends Controller
      * @param  \App\UserData  $userData
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserData $userData)
+    public function edit(Userdata $userData)
     {
         //
     }
@@ -67,10 +77,10 @@ class UserDataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserData  $userData
+     * @param  \App\Userdata  $userData
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserData $userData)
+    public function update(Request $request, Userdata $userData)
     {
         //
     }
@@ -78,10 +88,10 @@ class UserDataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserData  $userData
+     * @param  \App\Userdata  $userData
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserData $userData)
+    public function destroy(Userdata $userData)
     {
         //
     }

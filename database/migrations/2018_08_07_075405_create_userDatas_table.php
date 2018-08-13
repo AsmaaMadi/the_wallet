@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDatasTable extends Migration
+class CreateUserdatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateUserDatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('userDatas', function (Blueprint $table) {
+        Schema::create('userdatas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('age');
-            $table->string('gender');
+            $table->string('gender')->default('male');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('user_id');
+
+
             $table->timestamps();
         });
-        Schema::create('userData_wallet', function (Blueprint $table) {
-            $table->integer('userData_id');
-            $table->integer('wallet_id');
-            $table->timestamps();
-        });
+
     }
 
     /**
@@ -36,7 +35,7 @@ class CreateUserDatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userDatas');
-        Schema::dropIfExists('userData_wallet');
+        Schema::dropIfExists('userdatas');
+        Schema::dropIfExists('userdata_wallet');
     }
 }

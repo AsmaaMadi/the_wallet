@@ -10,7 +10,7 @@ class WalletController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -42,6 +42,7 @@ class WalletController extends Controller
     public function store(WalletStoreRequest $request)
     {
         $request->validated();
+
         Wallet::create($request->all());
         return redirect()->route('wallet.index')->with('success','the wallet is created successfully');
 
